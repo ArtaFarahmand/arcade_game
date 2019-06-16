@@ -24,17 +24,54 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+//code reference: https://matthewcranford.com/arcade-game-walkthrough-part-3-creating-a-hero/
 
 class Character {
   constructor() {
-    this.x = 0; // initite x at 0
-    this.y = 0; // initite y at 0
+    this.step = 101;
+    this.jump =83;
+    this.startX = this.step * 2;
+    this.startY = (this.jump * 5) - 20; 
+    this.x = this.startX; // starting position of X
+    this.y = this.startY; // starting position of y
     this.sprite = 'images/char-boy.png';
   }
   
   // Drawing our character on current x & y coordinates positions.
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+  
+  // code reference: https://matthewcranford.com/arcade-game-walkthrough-part-4-heros-first-steps/
+  /**
+  * update character x and y property according to input
+  *
+  * @param {string} input - direction of travel
+  */
+
+  handleInput(input) {
+    switch (input) {
+      case 'left':
+        if(this.x > 0){
+        this.x -= this.step;
+        }
+        break;
+      case 'up':
+        if(this.y > this.jump) {
+        this.y -= this.jump;
+        }
+        break;
+      case 'right':
+        if(this.x < this.step * 4) {
+        this.x += this.step;
+        }
+        break; 
+      case 'down':
+        if(this.y < this.jump * 4) {
+        this.y += this.jump;
+        }
+        break; 
+    }
   }
 }
     
@@ -43,7 +80,6 @@ class Character {
 // Place the player object in a variable called player
 
 const player = new Character();
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
