@@ -94,11 +94,11 @@ class Character {
 // Place the player object in a variable called player
 
 const player = new Character();
-const bug1 = new Enemy(-101, 0, 100);
-const bug2 = new Enemy(-101, 83, 150);
-const bug3 = new Enemy((-101*2.5), 83, 175);
+const enemyBug1 = new Enemy(-101, 0, 100);
+const enemyBug2 = new Enemy(-101, 83, 150);
+const enemyBug3 = new Enemy((-101*2.5), 83, 175);
 const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3);
+allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 console.log(allEnemies);
 
 // This listens for key presses and sends the keys to your
