@@ -46,11 +46,11 @@ class Character {
   /**
   * update character x and y property according to input
   *
-  * @param {string} input - direction of travel
+  * @param {string} keyInput - direction of travel
   */
 
-  handleInput(input) {
-    switch (input) {
+  handleInput(keyInput) {
+    switch (keyInput) {
       case 'left':
         if(this.x > 0){
         this.x -= this.step;
