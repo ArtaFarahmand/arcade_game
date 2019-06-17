@@ -5,6 +5,7 @@ var Enemy = function(x,y, speed) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    // Code reference: https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/
     this.x = x;
     this.y = y + 55; // center y axis
     this.step = 101;
@@ -95,8 +96,8 @@ class Character {
 
 const player = new Character();
 const enemyBug1 = new Enemy(-101, 0, 100);
-const enemyBug2 = new Enemy(-101, 83, 150);
-const enemyBug3 = new Enemy((-101*2.5), 83, 175);
+const enemyBug2 = new Enemy(-101, 83, 125);
+const enemyBug3 = new Enemy((-101*2.5), 170, 150);
 const allEnemies = [];
 allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 console.log(allEnemies);
