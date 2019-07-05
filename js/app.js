@@ -46,9 +46,10 @@ class Character {
     this.step = 101;
     this.jump = 83;
     this.startX = this.step * 2;
-    this.startY = (this.jump * 5) - 20; 
+    this.startY = (this.jump * 4) + 55; 
     this.x = this.startX; // starting position of X
     this.y = this.startY; // starting position of y
+    this.victory = false;
     this.sprite = 'images/char-boy.png';
   }
   
@@ -88,6 +89,29 @@ class Character {
         break; 
     }
   }
+  
+  
+  // code reference:https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/
+  update() {
+    // check for collisions 
+    for(let enemy of allEnemies) {
+      if(this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+        this.reset();
+      }
+    }
+    
+    //check to see if the player has won
+    if(this.y === 55) {
+      this.victory = true; 
+    }
+  }
+  
+  reset() {
+    // setting the x and y back to starting position
+    this.y = this.startY;
+    this.x = this.startX;
+    console.log('game reset');
+  }
 }
     
 // Now instantiate your objects.
@@ -97,7 +121,7 @@ class Character {
 const player = new Character();
 const enemyBug1 = new Enemy(-101, 0, 100);
 const enemyBug2 = new Enemy(-101, 83, 125);
-const enemyBug3 = new Enemy((-101*2.5), 170, 150);
+const enemyBug3 = new Enemy((-101*2.5), 83, 150);
 const allEnemies = [];
 allEnemies.push(enemyBug1, enemyBug2, enemyBug3);
 console.log(allEnemies);
