@@ -8,8 +8,8 @@ var Enemy = function(x,y, speed) {
     // Code reference: https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/
     this.x = x;
     this.y = y + 55; // center y axis
-    this.step = 101;
-    this.boundary = this.step * 5;
+    this.step = 101; // define how the bugs moves 
+    this.boundary = this.step * 5; 
     this.resetPos = -this.step;
     this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
@@ -41,7 +41,20 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 //code reference: https://matthewcranford.com/arcade-game-walkthrough-part-3-creating-a-hero/
 
-class Character {
+// Character class
+  // constructor
+    // Properties
+      // x position
+      // y position
+      // sprite_image
+    // Methods
+      // update position
+        // Check collisions 
+          // did player x & y collide with a bug?
+        // Check win 
+          // Did player x & y reach final tile?
+
+class Character { 
   constructor() {
     this.step = 101;
     this.jump = 83;
